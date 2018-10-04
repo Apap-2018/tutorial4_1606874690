@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<title>View All Dealer</title>
+	</head>
+	<body>		
+		<h3>Daftar Dealer</h3>
+		<div th:each="dealer : ${listDealer}">
+			<h4 th:text="'Alamat = ' + ${dealer.alamat}"></h4>
+			<h4 th:text="'Telepon = ' + ${dealer.noTelp}"></h4>
+			<h4 th:text="'ID = ' + ${dealer.id}"></h4>
+			
+			<td><a th:href="@{/dealer/delete/} + ${dealer.id}">Hapus</a></td>
+			
+			<div th:each="car : ${dealer.listCar}">
+				<h5 th:text="'Brand = ' + ${car.brand}"></h5>
+				<h5 th:text="'Price = ' + ${car.price}"></h5>
+				<h5 th:text="'Amount = ' + ${car.amount}"></h5>
+			</div>
+			<br>
+		</div> 
+	</body>
+</html>
+
